@@ -22,8 +22,8 @@ describe('Item Details', ()=>{
     test('should render price, rating and stock', ()=>{
         render(<Details details={testDetail}/>)
 
-        const price = screen.getByText(testDetail.price);
-        const stock = screen.getByText(testDetail.stock);
+        const price = screen.getByText(new RegExp(testDetail.price));
+        const stock = screen.getByText(new RegExp(testDetail.stock));
         const rating = screen.getByText(testDetail.rating);
     })
 
