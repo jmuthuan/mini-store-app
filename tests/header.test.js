@@ -5,10 +5,9 @@ import Header from '../app/Components/Header'
 describe('Header', ()=>{
     test('should show title, "home" and "about" links in header', ()=>{
         const app = render(<Header />)
-        //console.log(prettyDOM(app.container))
-
-        const title = screen.getByText('Midu-Store');
-        expect(title).toBeDefined();
+       
+        const img = screen.getByRole('img')
+        expect(img).toBeDefined();
 
         const link = screen.getAllByRole('link');
         expect(link.length).toBe(2); 

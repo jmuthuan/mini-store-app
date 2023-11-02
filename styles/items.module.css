@@ -1,0 +1,37 @@
+.results-info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 2rem;
+}
+
+
+.item-container{
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: #f8f3d4;
+    box-shadow: 6px 6px 4px #2a2a2a
+}
+
+.item-container > a{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.image-container{
+    clip-path: circle(4.5rem at 50% 50%);
+}
