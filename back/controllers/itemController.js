@@ -1,38 +1,20 @@
-import jsonTest from '../products.json' assert {type: 'json'};
+import { dataDetail, searchQuery } from '../utils/dataFetch.js';
 
-export const getSearchItems = async (req, res)=>{
 
-        const query = req.query.q;
-        console.log('query search...', req.query)
-        //res.send('holanda')
-        const data = jsonTest.products.filter( product => 
-            product.title.toLocaleLowerCase().includes(query) ||
-            product.description.toLocaleLowerCase().includes(query) ||
-            product.brand.includes(query) ||
-            product.category.toLocaleLowerCase().includes(query)  
-        )
-    
-        console.log(data)
+export const getSearchItems = async (req, res) => {
 
-        res.send(data)
-        //return data;
-  
+    const query = req.query.q;
+    const data = await searchQuery(query);
 
-    //return null;
+    //console.log(data)
+    res.json(data)
 }
 
-export const getItemDetail = async (req, res)=>{
-    console.log('details...', req.params.id)
-    res.send('hello world')
-
+export const getItemDetail = async (req, res) => {
+    
     const id = req.params.id
+    const detail = await dataDetail(id);
 
-    const detail = jsonTest.products.filter((product) => 
-        product.id.toString() === id)
-    
-        console.log(detail[0])
-        res.send(detail[0])
-        //return detail[0];
-
-    
+    //console.log(detail)
+    res.json(detail)
 }
