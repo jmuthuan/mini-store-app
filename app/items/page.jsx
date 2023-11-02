@@ -17,8 +17,7 @@ const ItemList = () => {
     }, [])
 
     const fetchData = async (query) => {
-        const data = await getData(query)
-        //console.log(data);
+        const data = await getData(query)        
         setData(data)
     }
 

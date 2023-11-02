@@ -1,15 +1,15 @@
-import testDetail from '../src/data/products.json'
+const getDataDetails = async (id) => {
+        const API_URL = 'http://localhost:8000/api/items/';
 
-const getDataDetails = async (id)=>{
-        return foo(id)
-    
+        try {
+                const details = fetch(`${API_URL}${id}`)
+                        .then(response => response.json())
+                        .catch(rej => console.log(rej))
+                return details;
+
+        } catch (error) {
+                console.log(error);
+        }
 }
 
 export default getDataDetails;
-
-const foo = (id)=>{    
-    const detail = testDetail.products.filter((product) => 
-        product.id.toString() === id)
-    
-        return detail[0];
-}

@@ -1,21 +1,15 @@
-import jsonTest from '../src/data/products.json'
+const getData = async (query) => {
+    console.log(query)
+    const API_URL = 'http://localhost:8000/api/items';
 
-const getData = async (query)=>{
-
-    return foo(query)    
+    try {
+        const data = await fetch(`${API_URL}?q=${query}`)
+            .then(response => response.json())
+            //.then(data => )
+        return data;    
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export default getData;
-
-const foo = (query)=>{
-    console.log(query)
-    const data = jsonTest.products.filter( product => 
-        product.title.toLocaleLowerCase().includes(query) ||
-        product.description.toLocaleLowerCase().includes(query) ||
-        product.brand.includes(query) ||
-        product.category.toLocaleLowerCase().includes(query)  
-    )
-
-    //console.log(data)
-    return data;
-}
