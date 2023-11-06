@@ -1,20 +1,30 @@
 import Image from 'next/image';
+import styles from '../../styles/details.module.css';
+import stars from '@/utils/ratingStars';
+import Carousel from './Carousel';
 
 const Details = ({ details }) => {
 
+    const handleBuyClick = (e) => {
+        //TO-DO
+        alert('function under development')
+
+    }
     return (
         <>
-            <section>
-                <section>
+            <section className={styles['details-img']}>
+                <section className={styles['main-img']}>
                     <Image
                         src={details.thumbnail}
                         alt={`images of ${details.title}`}
                         width={150}
                         height={150}
+                        priority={true}
                     />
                 </section>
-                <aside>
-                    {
+                <aside className={styles.carrousel}>
+                    <Carousel images={details.images}/>
+                    {/* {
                         details.images.map(image => {
                             return (
                                 <Image
@@ -26,27 +36,31 @@ const Details = ({ details }) => {
                                 />
                             )
                         })
-                    }
+                    } */}
                 </aside>
             </section>
 
-            <section>
+            
+
+            <section className={styles.h2}>
                 <h2>{details.title}</h2>
             </section>
 
-            <section>
-                <div>
-                    <p>${details.price}</p>
-                    <p>{details.stock} available</p>
+            <section className={styles['price-rating']}>
+                <div className={styles.price}>
+                    <p>$ {details.price}</p>
+                    <p>({details.stock} available)</p>
                 </div>
-                <div>{details.rating}</div>
+                <div className={styles.rating}>{stars[Math.floor(details.rating / 0.5)]}</div>
             </section>
 
-            <section>
+            <section className={styles['item-description']}>
                 <p>{details.description}</p>
             </section>
 
-            <button>Buy</button>        
+            <section className={styles.buy}>
+                <button type='button' onClick={handleBuyClick}>Buy</button>
+            </section>
         </>
     )
 

@@ -26,8 +26,6 @@ const Item = ({ thumbnail, title, price, description, rating, id }) => {
                     <div className={styles.price}>
                         <p>$ {price}</p>
                         <span>{stars[Math.floor(rating/0.5)]}</span>
-                        
-                        
                     </div>
                 </section>
             </Link>

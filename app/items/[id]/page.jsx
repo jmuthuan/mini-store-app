@@ -1,6 +1,6 @@
 'use client'
 
-import styles from '../../page.module.css';
+import styles from '@/styles/details.module.css';
 import test from '../../../src/data/test-item-detail.json';
 import Details from '@/app/Components/Details';
 import { useEffect, useState } from 'react';
@@ -17,17 +17,14 @@ const ItemDetail = ({ params }) => {
 
     const fetchDetails = async (id) => {
         const details = await getDataDetails(id)
-        console.log(details)
+        //console.log(details)
         setDetail(details)
     }
 
     return (
-        <main className={styles.main}>
-            <div className={styles.description}>
-                {detail && <Details details={detail} />}
-                
-            </div>
-        </main>
+        <div className={styles['details-container']}>            
+                {detail && <Details details={detail} />}           
+        </div>
     )
 }
 

@@ -1,0 +1,26 @@
+.carousel-container{
+    width: 5rem;
+    height: 12rem;
+    overflow-y: hidden;
+    position: relative;
+    text-align: center;
+}
+.carousel-item >img{
+    width: 64px;
+    height: 64px;
+    margin-bottom: 2px;
+}
+
+
+.arrow-up{
+    position: absolute;
+    left: calc(50% - 8px);
+    transform: scaleX(1.5);
+}
+
+.arrow-down{
+    position: absolute;
+    left: calc(50% - 8px);
+    top: 11rem;
+    transform: scaleX(1.5);
+}
