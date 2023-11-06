@@ -33,5 +33,47 @@
 }
 
 .image-container{
-    clip-path: circle(4.5rem at 50% 50%);
+    clip-path: circle(12.5vw at 50% 50%);
+}
+
+@media screen and (min-width: 600px) {
+    .image-container{
+        clip-path: circle(4.5rem at 50% 50%);
+    }    
+}
+
+.image-container >img{
+    width: 25vw;
+    max-width: 150px;
+}
+
+
+.item-info{
+    padding-right: 0.5rem;
+}
+
+.h3{
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.item-description{
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.price{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.price >p {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.price >span >svg{
+    color: #2a2a2a;
+    transform: scale(0.8);    
 }

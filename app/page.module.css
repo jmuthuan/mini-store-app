@@ -15,20 +15,20 @@
   /* padding: 6rem; */
   min-height: 100vh;
   background-color: #f1e7a8;
+
+}
+
+@media screen and (min-width: 600px) {
+  .main{
+    padding: 0 calc(50vw - 300px);      
+  }
 }
 
 .description {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  padding: 0 3rem;
-
-  /* justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono); */
+  padding: 0 3rem 3rem 3rem;
+  
 }
 

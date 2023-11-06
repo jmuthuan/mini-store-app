@@ -32,7 +32,7 @@ describe('should render an item card', () => {
             price={testItem.price}
             rating={testItem.rating}/>)
 
-        const price = screen.getByText(testItem.price);
+        const price = screen.getByText(new RegExp(testItem.price));
 
         const rating = screen.getByText(testItem.rating);
     } )
