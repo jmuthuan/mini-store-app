@@ -6,8 +6,8 @@
     text-align: center;
 }
 .carousel-item >img{
-    width: 64px;
-    height: 64px;
+    /* width: 64px;
+    height: 64px; */
     margin-bottom: 2px;
 }
 
@@ -16,6 +16,7 @@
     position: absolute;
     left: calc(50% - 8px);
     transform: scaleX(1.5);
+    z-index: 2;
 }
 
 .arrow-down{
@@ -23,4 +24,5 @@
     left: calc(50% - 8px);
     top: 11rem;
     transform: scaleX(1.5);
+    z-index: 2;
 }

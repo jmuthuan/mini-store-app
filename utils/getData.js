@@ -1,5 +1,5 @@
 const getData = async (query) => {
-    console.log(query)
+    //console.log(query)
     const API_URL = 'http://localhost:8000/api/items';
 
     try {

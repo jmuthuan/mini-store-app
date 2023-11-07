@@ -12,8 +12,7 @@ export default function Home() {
   const handleSubmit = (e)=>{
     e.preventDefault();
 
-    const input = e.target.querySelector('input')
-    console.log('test', input.value);
+    const input = e.target.querySelector('input')    
 
     let query = input.value;
     if(input.value === '') {

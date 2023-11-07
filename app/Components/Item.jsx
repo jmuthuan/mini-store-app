@@ -6,10 +6,6 @@ import stars from "@/utils/ratingStars";
 
 const Item = ({ thumbnail, title, price, description, rating, id }) => {
 
-    console.log(rating)    
-    console.log(Math.floor(rating/0.5))
-    console.log(stars[Math.floor(rating/0.5)])
-
     return (
         <div className={styles['item-container']}>
             <Link href={`/items/${id}`}>
@@ -17,8 +13,8 @@ const Item = ({ thumbnail, title, price, description, rating, id }) => {
                     <Image
                         src={thumbnail}
                         alt={`of ${title}`}
-                        width={150}
-                        height={150} />
+                        width={64}
+                        height={64} />
                 </aside>
                 <section className={styles['item-info']}>
                     <h3 className={styles.h3}>{title}</h3>

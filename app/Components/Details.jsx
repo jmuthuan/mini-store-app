@@ -2,20 +2,28 @@ import Image from 'next/image';
 import styles from '../../styles/details.module.css';
 import stars from '@/utils/ratingStars';
 import Carousel from './Carousel';
+import { useState } from 'react';
 
 const Details = ({ details }) => {
+
+    const [mainImg, setMainImg] = useState(details.thumbnail)
+    
 
     const handleBuyClick = (e) => {
         //TO-DO
         alert('function under development')
-
     }
+
+    const onClickImg = (id) => {
+        setMainImg(id);
+    }
+
     return (
         <>
             <section className={styles['details-img']}>
                 <section className={styles['main-img']}>
                     <Image
-                        src={details.thumbnail}
+                        src={mainImg}
                         alt={`images of ${details.title}`}
                         width={150}
                         height={150}
@@ -23,7 +31,8 @@ const Details = ({ details }) => {
                     />
                 </section>
                 <aside className={styles.carrousel}>
-                    <Carousel images={details.images}/>
+                    <Carousel images={details.images}
+                        onClickImg={onClickImg} />
                     {/* {
                         details.images.map(image => {
                             return (
@@ -40,7 +49,7 @@ const Details = ({ details }) => {
                 </aside>
             </section>
 
-            
+
 
             <section className={styles.h2}>
                 <h2>{details.title}</h2>
