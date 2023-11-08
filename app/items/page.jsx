@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react';
-//import styles from '../page.module.css';
 import getData from '@/utils/getData';
 import Item from '../Components/Item';
 import styles from '../../styles/items.module.css';
@@ -25,7 +24,7 @@ const ItemList = () => {
     return (
         <>           
             <section className={styles['results-info']}>
-                <p>Search results of: "{query}"</p>
+                <p>{`Search results of: "${query}"`}</p>
                 <p>({data?.length} items found)</p>
             </section>
             <section className={styles.items}>

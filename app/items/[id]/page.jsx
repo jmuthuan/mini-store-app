@@ -13,11 +13,10 @@ const ItemDetail = ({ params }) => {
 
     useEffect(() => {
         fetchDetails(id)
-    }, [])
+    }, [id])
 
     const fetchDetails = async (id) => {
         const details = await getDataDetails(id)
-        //console.log(details)
         setDetail(details)
     }
 
