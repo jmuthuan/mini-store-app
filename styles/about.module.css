@@ -37,8 +37,7 @@
     line-height: 1.5rem;
   }
 
-  .img-logo {
-    height: 48px;
+  .img-logo {    
     top: 15%;
     position: relative;  
   }
@@ -46,6 +45,7 @@
   .about-avatar {
     clip-path: circle(50% at 50% 50%);
     width: 50vw;
+    height: auto;
     max-width: 250px;
   }
 
