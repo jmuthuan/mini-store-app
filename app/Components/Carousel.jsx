@@ -19,13 +19,13 @@ const Div = styled.div`
 
     @keyframes upEnd {
         0%{bottom: 0px;}
-        50%{bottom: 20px;}
+        50%{bottom: -20px;}
         100%{bottom: 0px;}    
     }
 
     @keyframes bottomEnd {
         0%{bottom: ${props => props.$offset * 70}px}
-        50%{bottom: ${props => props.$offset * 70 -20}px;}
+        50%{bottom: ${props => props.$offset * 70 +20}px;}
         100%{bottom: ${props => props.$offset * 70}px} 
     }
 `
