@@ -5,12 +5,6 @@
     position: relative;
     text-align: center;
 }
-.carousel-item >img{
-    /* width: 64px;
-    height: 64px; */
-    margin-bottom: 2px;
-}
-
 
 .arrow-up{
     position: absolute;
@@ -25,4 +19,14 @@
     top: 11rem;
     transform: scaleX(1.5);
     z-index: 2;
+}
+
+.carousel-item >img{
+    /* width: 64px;
+    height: 64px; */
+    margin-bottom: 2px;
+}
+
+.carousel-item {
+    transition: all 0.4s ease-out;
 }
