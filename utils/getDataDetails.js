@@ -3,7 +3,7 @@ const getDataDetails = async (id) => {
         const API_URL = 'https://midu-store-api.onrender.com/api/items'
 
         try {
-                const details = fetch(`${API_URL}/${id}`)
+                const details = fetch(`${API_URL_LOCAL}/${id}`)
                         .then(response => response.json())
                         .catch(rej => console.log(rej))
                 return details;

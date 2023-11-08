@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import styles from './page.module.css'
 import SearchBar from './Components/SearchBar';
 import { useRouter } from 'next/navigation';
@@ -21,7 +20,7 @@ export default function Home() {
 
     input.value= '';
 
-    router.push(`/items?search=${query}`);
+    router.push(`/items?search=${query.toLocaleLowerCase()}`);
   }
 
   return (

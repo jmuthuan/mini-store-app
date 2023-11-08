@@ -10,7 +10,6 @@ const ItemList = () => {
     const [query, setQuery] = useState('')
 
     useEffect(() => {
-
         const search = new URLSearchParams(window.location.search)
         fetchData(search.get('search'));
         setQuery(search.get('search'));
@@ -32,13 +31,14 @@ const ItemList = () => {
                     data && data.map(item => {
                         return (
                             <Item
+                                key={item.id}
                                 thumbnail={item.thumbnail}
                                 title={item.title}
                                 price={item.price}
                                 description={item.description}
                                 rating={item.rating}
                                 id={item.id}
-                                key={item.id} />
+                                />
                         )
                     })
                 }

@@ -11,6 +11,13 @@
     left: calc(50% - 8px);
     transform: scaleX(1.5);
     z-index: 2;
+    
+}
+
+.arrow-up > svg >path,
+.arrow-down > svg > path
+{
+    filter: drop-shadow(10px 10px 40px white);
 }
 
 .arrow-down{

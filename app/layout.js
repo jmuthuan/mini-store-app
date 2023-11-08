@@ -1,9 +1,15 @@
-import { Inter } from 'next/font/google'
+//import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
+import {Red_Hat_Display} from'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const red_hat = Red_Hat_Display({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
+//const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Midu Store',
@@ -13,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={red_hat.className}>
         <Header />
         {children}
         <Footer />

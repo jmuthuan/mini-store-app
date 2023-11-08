@@ -5,11 +5,12 @@
     border-bottom: 5px solid #111111;
     background-color: #f8f3d4;  
     padding: 1rem 1.5rem 0 1.5rem;  
+    max-height: calc(24.2vw + 50px);  
 }
 
 @media screen and (min-width: 600px) {
     .header-container {        
-      padding: 1rem calc(50vw - 300px);
+      padding: 1rem calc(50vw - 250px);
       padding-bottom: 0;      
     }
   

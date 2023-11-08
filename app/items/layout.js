@@ -10,16 +10,15 @@ export default function ItemsLayout({ children }) {
   const handleSubmit = (e)=>{
     e.preventDefault();
 
-    const input = e.target.querySelector('input')
-    console.log('test', input.value);
+    const input = e.target.querySelector('input')    
 
-    let query = input.value;
+    let query = input.value.toLocaleLowerCase();
     if(input.value === '') {
       query = 'all'
     }
 
     input.value= '';
-
+    
     router.push(`/items?search=${query}`);
   }
     return (

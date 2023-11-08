@@ -11,4 +11,5 @@
     border-top: 5px solid #111111;
     background-color: #f8f3d4; 
     color: #111111;   
+    max-height: 75px;
 }

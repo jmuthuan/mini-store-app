@@ -1,0 +1,74 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: calc(100vh - 75px - 24.2vw - 50px);
+    background-color: #f1e7a8;  
+    font-size: 0.9rem;
+  }
+  
+  @media screen and (min-width: 600px) {
+    .main{
+      padding: 0 calc(50vw - 300px);      
+    }
+  }
+
+
+  .about-page-wrapper{
+    padding: 0 3rem 3rem 3rem;
+  }
+
+  .span{
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;    
+    display: block;
+  }
+
+  .about-page,
+  .about-technoligies,
+  .about-developers{
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background-color: #f8f3d4;
+    box-shadow: 6px 6px 4px #2a2a2a;
+    line-height: 1.5rem;
+  }
+
+  .img-logo {
+    height: 48px;
+    top: 15%;
+    position: relative;  
+  }
+
+  .about-avatar {
+    clip-path: circle(50% at 50% 50%);
+    width: 50vw;
+    max-width: 250px;
+  }
+
+  .about-technologies-logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1rem 0;
+
+  }
+
+    
+  .about-developer-avatar-name {
+    width: 90%;
+    display: inline-block;
+    /* margin-left: 8vw; */
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .developer-social-media>a>img {
+    height: 32px;
+    margin: 1rem 1rem;
+  }
