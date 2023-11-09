@@ -24,7 +24,9 @@ describe('Item Details', ()=>{
 
         const price = screen.getByText(new RegExp(testDetail.price));
         const stock = screen.getByText(new RegExp(testDetail.stock));
-        const rating = screen.getByText(testDetail.rating);
+        //const rating = screen.getByText(testDetail.rating);
+        const rating = screen.getByRole("figure");
+        expect(rating.children.length).toBe(5);
     })
 
     test('should render item description', ()=>{
@@ -37,6 +39,6 @@ describe('Item Details', ()=>{
         render(<Details details={testDetail}/>)
 
         const button = screen.getByRole('button')
-        const buy = screen.getByText('Buy')
+        const buy = screen.getByText('Add to Cart')
     })
 })

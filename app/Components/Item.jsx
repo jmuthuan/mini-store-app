@@ -6,6 +6,8 @@ import stars from "@/utils/ratingStars";
 
 const Item = ({ thumbnail, title, price, description, rating, id }) => {
 
+    const rating_star = stars[Math.floor(rating/0.5)];
+
     return (
         <div className={styles['item-container']}>
             <Link href={`/items/${id}`}>
@@ -21,7 +23,7 @@ const Item = ({ thumbnail, title, price, description, rating, id }) => {
                     <p className={styles['item-description']}>{description}</p>
                     <div className={styles.price}>
                         <p>$ {price}</p>
-                        <span>{stars[Math.floor(rating/0.5)]}</span>
+                        <span role="figure">{rating_star}</span>
                     </div>
                 </section>
             </Link>

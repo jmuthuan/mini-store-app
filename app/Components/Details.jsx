@@ -7,16 +7,18 @@ import { useState } from 'react';
 const Details = ({ details }) => {
 
     const [mainImg, setMainImg] = useState(details.thumbnail)
-    
-
+   
     const handleBuyClick = (e) => {
-        //TO-DO
-        alert('function under development')
+        let buy = new Map(JSON.parse(localStorage.getItem('buyCart')));
+        buy.set(details.id, details)
+        localStorage.setItem('buyCart', JSON.stringify([...buy])) 
     }
 
     const onClickImg = (id) => {
         setMainImg(id);
     }
+
+    const rating = stars[Math.floor(details.rating / 0.5)]
 
     return (
         <>
@@ -32,23 +34,9 @@ const Details = ({ details }) => {
                 </section>
                 <aside className={styles.carrousel}>
                     <Carousel images={details.images}
-                        onClickImg={onClickImg} />
-                    {/* {
-                        details.images.map(image => {
-                            return (
-                                <Image
-                                    src={image}
-                                    alt={`more images of ${details.title}`}
-                                    width={64}
-                                    height={64}
-                                    key={image}
-                                />
-                            )
-                        })
-                    } */}
+                        onClickImg={onClickImg} />                    
                 </aside>
             </section>
-
 
 
             <section className={styles.h2}>
@@ -60,7 +48,7 @@ const Details = ({ details }) => {
                     <p>$ {details.price}</p>
                     <p>({details.stock} available)</p>
                 </div>
-                <div className={styles.rating}>{stars[Math.floor(details.rating / 0.5)]}</div>
+                <div className={styles.rating} role='figure'>{rating}</div>
             </section>
 
             <section className={styles['item-description']}>
@@ -68,7 +56,7 @@ const Details = ({ details }) => {
             </section>
 
             <section className={styles.buy}>
-                <button type='button' onClick={handleBuyClick}>Buy</button>
+                <button type='button' onClick={handleBuyClick}>Add to Cart</button>
             </section>
         </>
     )

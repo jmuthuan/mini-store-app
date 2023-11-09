@@ -1,5 +1,5 @@
 import Item from "@/app/Components/Item"
-import { cleanup, render, screen } from "@testing-library/react"
+import { cleanup, prettyDOM, render, screen } from "@testing-library/react"
 import testItem from '../src/data/test-item.json';
 
 describe('should render an item card', () => {
@@ -34,7 +34,10 @@ describe('should render an item card', () => {
 
         const price = screen.getByText(new RegExp(testItem.price));
 
-        const rating = screen.getByText(testItem.rating);
+        //const rating = screen.getByText(testItem.rating);
+        const rating = screen.getByRole("figure");
+        expect(rating.children.length).toBe(5);
+        
     } )
 
     test('should have a Link to show the details', ()=>{
