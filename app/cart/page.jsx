@@ -2,26 +2,43 @@
 
 import Item from "../Components/Item";
 import styles from '@/styles/items.module.css';
-import { FaTrashAlt } from 'react-icons/fa'
+import { useEffect, useState } from "react";
+import { FaTrashAlt } from 'react-icons/fa';
+import { useRouter } from "next/navigation";
 
 const Cart = () => {
+
+    const [data, setData] = useState()
     let products = JSON.parse(localStorage.getItem('buyCart'))
 
-    let data = [];
+    const router = useRouter();  
+    
+    useEffect(()=>{
+        let newData = Array.from(products, (value)=> value[1])
+        setData(newData)
+    },[])
 
-    products.forEach(value => {
-        data.push(value[1])
-    });
+    const handleTrashClick = (id) => {
+        const newProducts = products.filter(element => (element[0] !== id))
+        localStorage.setItem('buyCart', JSON.stringify([...newProducts]));
 
+        let newData = Array.from(newProducts, (value)=> value[1])
+        setData(newData)  
+        window.dispatchEvent(new Event("storage"));   
+        
+        if(newProducts.length <1) {
+            router.push('/');
+        }
+    };
+    
 
     return (
         <section className={styles.items}>
             {
-                data.length > 0 && data.map(item => {
+                data && data.map(item => {
                     return (
-                        <div className={styles['item-cart']}>
+                        <div className={styles['item-list']} key={item.id}>
                             <Item
-                                key={item.id}
                                 thumbnail={item.thumbnail}
                                 title={item.title}
                                 price={item.price}
@@ -29,8 +46,10 @@ const Cart = () => {
                                 rating={item.rating}
                                 id={item.id}
                             />
-                            <div className={styles['cart-trash']} key={item.id}>
-                                <FaTrashAlt  />
+                            <div className={styles['cart-trash']}
+                                role="application"
+                                onClick={() => handleTrashClick(item.id)}>
+                                <FaTrashAlt />
                             </div>
                         </div>
                     )

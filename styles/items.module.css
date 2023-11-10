@@ -33,7 +33,7 @@
 }
 
 .image-container{
-    clip-path: circle(12.5vw at 50% 50%);
+    clip-path: circle(10vw at 50% 50%);
 }
 
 @media screen and (min-width: 600px) {
@@ -44,6 +44,7 @@
 
 .image-container >img{
     width: 25vw;
+    height: auto;
     max-width: 150px;
 }
 
@@ -78,11 +79,12 @@
     transform: scale(0.8);    
 }
 
-.item-cart{
+.item-list{
     position: relative;
 }
 
-.cart-trash{
+.cart-trash,
+.cart-buy{
     position: absolute;
     top: 40%;
     left: 98%;
@@ -90,7 +92,7 @@
     height: 30px;
     background-color: #2a2a2a;
     border-radius: 20px;    
-    box-shadow: 4px 4px 4px #111111;    
+    box-shadow: -4px 4px 4px #111111;    
     padding: 5px;
     transform: scale(1.5);
     text-align: center;
@@ -102,5 +104,11 @@
     position: relative;
 }
 
+.cart-buy>svg{
+    color: rgb(50, 200, 50);
+    top: 2px;
+    right: 1px;
+    position: relative;
+}
 
 

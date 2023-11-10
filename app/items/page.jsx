@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import getData from '@/utils/getData';
 import Item from '../Components/Item';
 import styles from '../../styles/items.module.css';
+import { FaShoppingCart } from 'react-icons/fa'
+import { Prosto_One } from 'next/font/google';
 
 
 const ItemList = () => {
@@ -20,8 +22,19 @@ const ItemList = () => {
         setData(data)
     }
 
+    const handleBuyClick = (id) => {
+        const products = new Map(JSON.parse(localStorage.getItem('buyCart')));
+        products.set(id, data.find(element => element.id = id))
+       /*  console.log(products)
+        console.log(data.find(element => element.id = id)) */
+        localStorage.setItem('buyCart', JSON.stringify([...products]));
+
+        window.dispatchEvent(new Event("storage"));   
+        
+    };
+
     return (
-        <>           
+        <>
             <section className={styles['results-info']}>
                 <p>{`Search results of: "${query}"`}</p>
                 <p>({data?.length} items found)</p>
@@ -30,19 +43,26 @@ const ItemList = () => {
                 {
                     data && data.map(item => {
                         return (
-                            <Item
-                                key={item.id}
-                                thumbnail={item.thumbnail}
-                                title={item.title}
-                                price={item.price}
-                                description={item.description}
-                                rating={item.rating}
-                                id={item.id}
+                            <div className={styles['item-list']} key={item.id}>
+                                <Item
+                                    thumbnail={item.thumbnail}
+                                    title={item.title}
+                                    price={item.price}
+                                    description={item.description}
+                                    rating={item.rating}
+                                    id={item.id}
                                 />
+                                <div className={styles['cart-buy']}
+                                    role="application"
+                                    onClick={() => handleBuyClick(item.id)}>
+                                    <FaShoppingCart />
+                                </div>
+                            </div>
+
                         )
                     })
                 }
-            </section>   
+            </section >
         </>
     )
 }

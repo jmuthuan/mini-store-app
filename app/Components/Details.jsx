@@ -12,6 +12,7 @@ const Details = ({ details }) => {
         let buy = new Map(JSON.parse(localStorage.getItem('buyCart')));
         buy.set(details.id, details)
         localStorage.setItem('buyCart', JSON.stringify([...buy])) 
+        window.dispatchEvent(new Event("storage"));
     }
 
     const onClickImg = (id) => {

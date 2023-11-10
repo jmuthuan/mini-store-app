@@ -3,10 +3,6 @@
 import styles from './page.module.css'
 import SearchBar from './Components/SearchBar';
 import { useRouter } from 'next/navigation';
-import BuyCart from './Components/BuyCart';
-//import productTest from '@/src/data/products.json';
-
-
 
 export default function Home() {
  
@@ -32,8 +28,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>        
-          <SearchBar handleSubmit={handleSearch} />
-          <BuyCart />      
+          <SearchBar handleSubmit={handleSearch} />            
       </div>
     </main>
   )

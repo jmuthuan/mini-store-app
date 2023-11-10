@@ -1,6 +1,16 @@
-import BuyCart from "@/app/Components/BuyCart"
-import { render, screen } from "@testing-library/react"
-import productTest from '@/src/data/products.json';
+import BuyCart from "@/app/Components/BuyCart";
+import { localStorageTest } from "@/src/data/test-buy-cart";
+import { render, screen } from "@testing-library/react";
+
+
+jest.mock('next/navigation', () => ({
+    useRouter() {
+      return {
+        pathname: '',
+        // ... whatever else you you call on `router`
+      };
+    },
+  }));
 
 describe('should display render component',()=>{
     test('should render cart image and button role/function', ()=>{
@@ -8,9 +18,12 @@ describe('should display render component',()=>{
         const button = screen.getByRole('button')
         const cart = screen.getAllByRole('application')
 
-        const itemCount = screen.getByText(productTest.products.length)
-        expect(itemCount.innerHTML).toBe(productTest.products.length.toString());
+        const itemsMock = JSON.parse(localStorageTest);
+        const itemCount = screen.getByText(itemsMock.length)
+        expect(itemCount.innerHTML).toBe(itemsMock.length.toString());
 
         
     })
 })
+
+
