@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from '../../styles/items.module.css';
-//import {FaRegStar, FaStarHalfAlt, FaStar} from 'react-icons/fa';
 import stars from "@/utils/ratingStars";
 
 const Item = ({ thumbnail, title, price, description, rating, id }) => {

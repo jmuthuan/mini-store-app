@@ -4,15 +4,13 @@ import getData from '@/utils/getData';
 import Item from '../Components/Item';
 import styles from '../../styles/items.module.css';
 import { FaShoppingCart } from 'react-icons/fa'
-import { Prosto_One } from 'next/font/google';
-
 
 const ItemList = () => {
     const [data, setData] = useState()
     const [query, setQuery] = useState('')
 
     useEffect(() => {
-        const search = new URLSearchParams(window.location.search)
+        const search = new URLSearchParams(global.window.location.search)
         fetchData(search.get('search'));
         setQuery(search.get('search'));
     }, [])
@@ -24,13 +22,15 @@ const ItemList = () => {
 
     const handleBuyClick = (id) => {
         const products = new Map(JSON.parse(localStorage.getItem('buyCart')));
-        products.set(id, data.find(element => element.id = id))
-       /*  console.log(products)
-        console.log(data.find(element => element.id = id)) */
+        products.set(id, data.find(element => element.id === id))
+
         localStorage.setItem('buyCart', JSON.stringify([...products]));
 
-        window.dispatchEvent(new Event("storage"));   
-        
+        if (typeof window !== 'undefined') {
+            // Your client-side code that uses window goes here
+            window.dispatchEvent(new Event("storage"));
+        }
+
     };
 
     return (

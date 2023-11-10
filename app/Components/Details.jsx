@@ -11,10 +11,14 @@ const Details = ({ details }) => {
     const handleBuyClick = (e) => {
         let buy = new Map(JSON.parse(localStorage.getItem('buyCart')));
         buy.set(details.id, details)
-        localStorage.setItem('buyCart', JSON.stringify([...buy])) 
-        window.dispatchEvent(new Event("storage"));
+        localStorage.setItem('buyCart', JSON.stringify([...buy]));
+        
+        if (typeof window !== 'undefined') {
+            window.dispatchEvent(new Event('storage'));        
+        }
+        
     }
-
+ 
     const onClickImg = (id) => {
         setMainImg(id);
     }

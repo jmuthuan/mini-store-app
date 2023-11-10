@@ -5,7 +5,7 @@ const localStorageMock = (function () {
   
     return {
       getItem(key) {
-        console.log('***********MOCK************')
+        //console.log('***********MOCK************')
         return store[key] || null;
       },
   

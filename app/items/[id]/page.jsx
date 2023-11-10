@@ -1,7 +1,6 @@
 'use client'
 
 import styles from '@/styles/details.module.css';
-import test from '../../../src/data/test-item-detail.json';
 import Details from '@/app/Components/Details';
 import { useEffect, useState } from 'react';
 import getDataDetails from '@/utils/getDataDetails';

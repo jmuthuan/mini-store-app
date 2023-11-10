@@ -9,28 +9,36 @@ import { useRouter } from "next/navigation";
 const Cart = () => {
 
     const [data, setData] = useState()
-    let products = JSON.parse(localStorage.getItem('buyCart'))
+    let products;// = JSON.parse(localStorage.getItem('buyCart'))
 
-    const router = useRouter();  
-    
-    useEffect(()=>{
-        let newData = Array.from(products, (value)=> value[1])
+    const router = useRouter();
+
+    useEffect(() => {
+        products = JSON.parse(localStorage.getItem('buyCart'))
+        let newData = Array.from(products, (value) => value[1])
         setData(newData)
-    },[])
+    }, [])
 
+    'use client'
     const handleTrashClick = (id) => {
-        const newProducts = products.filter(element => (element[0] !== id))
-        localStorage.setItem('buyCart', JSON.stringify([...newProducts]));
+        if (typeof window !== 'undefined') {
+            // Your client-side code that uses window goes here
+            const newProducts = products.filter(element => (element[0] !== id))
+            localStorage.setItem('buyCart', JSON.stringify([...newProducts]));
 
-        let newData = Array.from(newProducts, (value)=> value[1])
-        setData(newData)  
-        window.dispatchEvent(new Event("storage"));   
-        
-        if(newProducts.length <1) {
-            router.push('/');
+            let newData = Array.from(newProducts, (value) => value[1])
+            setData(newData)
+
+            window.dispatchEvent(new Event('storage'))
+
+
+            if (newProducts.length < 1) {
+                router.push('/');
+            }
         }
+
     };
-    
+
 
     return (
         <section className={styles.items}>
