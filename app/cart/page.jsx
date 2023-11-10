@@ -9,17 +9,20 @@ import { useRouter } from "next/navigation";
 const Cart = () => {
 
     const [data, setData] = useState()
-    let products;// = JSON.parse(localStorage.getItem('buyCart'))
+
+    let products;
+    if (typeof window !== 'undefined') {
+        // Your client-side code that uses window goes here
+        products = JSON.parse(localStorage.getItem('buyCart'))
+    }
 
     const router = useRouter();
 
-    useEffect(() => {
-        products = JSON.parse(localStorage.getItem('buyCart'))
+    useEffect(() => {        
         let newData = Array.from(products, (value) => value[1])
         setData(newData)
     }, [])
 
-    'use client'
     const handleTrashClick = (id) => {
         if (typeof window !== 'undefined') {
             // Your client-side code that uses window goes here
