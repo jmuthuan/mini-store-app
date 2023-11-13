@@ -4,6 +4,7 @@ import styles from '@/styles/details.module.css';
 import Details from '@/app/Components/Details';
 import { useEffect, useState } from 'react';
 import getDataDetails from '@/utils/getDataDetails';
+import LoadingDetails from '@/app/Components/LoadingDetails';
 
 const ItemDetail = ({ params }) => {
     const id = params.id;
@@ -19,8 +20,10 @@ const ItemDetail = ({ params }) => {
         setDetail(details)
     }
 
+    
     return (
-        <div className={styles['details-container']}>            
+        <div className={styles['details-container']}> 
+                {!detail && <LoadingDetails />}           
                 {detail && <Details details={detail} />}           
         </div>
     )

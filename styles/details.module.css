@@ -12,6 +12,14 @@
     text-align: center;
 }
 
+.h2-loading{
+    margin: 0.5rem auto;
+    height: 1.2rem;
+    width: 5rem;
+    border-radius: 5px;
+    background-color:  #2a2a2a;
+}
+
 .price-rating {
     display: flex;
     flex-direction: row;
@@ -50,6 +58,7 @@
     background-color: #2a2a2a;
     box-shadow: 4px 4px 4px #111111;
     width: 40vw;
+    max-width: 250px;
 }
 
 .details-img {
@@ -67,5 +76,22 @@
     width: fit-content;
     margin: 0.5rem auto;
     box-shadow: 6px 6px 4px #2a2a2a;    
+    width: 100%;
+    max-width: 360px;
 }
 
+.item-description>span{
+    height: 0.6rem;
+    margin-bottom: 0.5rem;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    width: 50vw;
+    display: block;
+    max-width: 300px;
+}
+
+.main-img>svg{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
